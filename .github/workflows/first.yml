@@ -1,9 +1,8 @@
 name: 'Terraform GitHub Actions'
 on:
-  - pull_request
   - push
 jobs:
-  runshellcommands:
+  run-shell-commands:
     runs-on: Red Hat
     steps:
       - name: echo string
