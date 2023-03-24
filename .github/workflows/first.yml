@@ -4,8 +4,7 @@ on:
   - push
 jobs:
   runshellcommands:
-    name: 'Terraform'
-    runs-on: ubuntu-latest
+    runs-on: Red Hat
     steps:
       - name: echo string
         run: echo "hello"
