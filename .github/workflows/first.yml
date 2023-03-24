@@ -9,8 +9,7 @@ jobs:
     steps:
       - name: echo string
         run: echo "hello"
-      
-      - name: 'multilinestring'
+      - name: multilinestring
          run: |
          ls -a
          pwd
