@@ -11,11 +11,18 @@ jobs:
         run: |
          ls -a
          pwd
-     name: pythoncommand
+     name: python command
      run: |
      import platform
      print (platform.processor())
-    shell: python    
+    shell: python 
+run-on-windows-commands:
+  runs-on: ["run-shell-commands"]
+  steps: 
+    -name: Directory
+     run: pwd
+     shell: bash
+
 
     
 
