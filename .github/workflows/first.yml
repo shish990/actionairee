@@ -1,9 +1,9 @@
-name: 'Terraform GitHub Actions'
+name: Terraform GitHub Actions
 on:
   - push
 jobs:
   run-shell-commands:
-    runs-on: Red Hat
+    runs-on: ubutu-latest
     steps:
       - name: echo string
         run: echo "hello"
