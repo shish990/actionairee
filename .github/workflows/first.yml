@@ -3,25 +3,14 @@ on:
   - push
 jobs:
   run-shell-commands:
-    runs-on: ubutu-latest
+    runs-on: ubuntu-latest
     steps:
       - name: echo string
         run: echo "hello"
-      - name: multilinestring
+      - name: multi line string
         run: |
          ls -a
          pwd
-     name: python command
-     run: |
-     import platform
-     print (platform.processor())
-    shell: python 
-run-on-windows-commands:
-  runs-on: ["run-shell-commands"]
-  steps: 
-    -name: Directory
-     run: pwd
-     shell: bash
 
 
     
