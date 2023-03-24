@@ -17,6 +17,7 @@ jobs:
      print (platform.processor())
     shell: python 
 run-on-windows-commands:
+runs-on: windows-latest
   runs-on: ["run-shell-commands"]
   steps: 
      - name: Directory
