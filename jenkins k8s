@@ -1,0 +1,30 @@
+node{
+def mavenHome = tool name: 'maven3.9.0'
+  stage('1cloneCode'){
+    git credentialsId: 'githubcred', url: 'https://github.com/LandmakTechnology/spring-boot-docker'
+  }
+  stage('2Test&Build'){
+    sh "${mavenHome}/bin/mvn clean package"
+    
+  }
+  stage('3codeQuality'){
+    //sh "${mavenHome}/bin/mvn clean sonar:sonar"
+  }
+  stage('BuildDockerImage'){
+    sh 'docker build -t landmark-web-app/spring-boot-mongo .'
+    
+  }
+  stage('pushtoregistry'){
+      withCredentials([string(credentialsId: 'dockerhubpas', variable: 'dockerhubpas')]) 
+      {
+    sh 'docker login -u shish990 -p ${dockerhubpas}'
+    
+      }
+    sh 'docker push shish990/landmark-web-app'
+      }
+      
+      stage('deploytok8s'){
+    sh 'kubectl apply -f springapp.yml '
+    
+  }
+}
